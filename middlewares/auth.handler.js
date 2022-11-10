@@ -14,4 +14,4 @@ async function checkBlacklist(req,res,next){
 
 
 
-module.exports = {checkAdminRole, checkRoles,checkBlacklist }
+module.exports = {checkBlacklist }
