@@ -5,12 +5,12 @@ const longitud = Joi.number();
 const ciudad = Joi.string();
 
 const getGeoSchema = Joi.object({
-  latitud,
+  latitud, 
   longitud: Joi.when('latitud',{
     is: Joi.exist(),
-    then: longitud.required()
+    then: longitud.required() //solo si latitud existe longitud es requerida
   }),
-  ciudad
+  ciudad //optional
 });
 
 module.exports = { getGeoSchema}

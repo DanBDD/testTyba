@@ -7,7 +7,7 @@ const options ={
 }
 
 const JwtStrategy = new Strategy(options,(payload,done)=>{
-  //en este punto la estrategia ya hizo el verify del token y nos da el payload, la info que tiene
+  //en este punto la estrategia ya hizo el verify del token, no necesitamos hacer mas validaciones, por eso ahcemos el return directamente
   return done(null,payload)
 })
 

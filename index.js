@@ -7,7 +7,7 @@ const app = express()
 
 const port = config.port // se obtienen secretos del objeto de configuracion
 
-app.use(express.json());
+app.use(express.json()); // me permite data en formato JSON 
 
 require('./utils/auth') //ejecucion de la capa de autenticacion
 

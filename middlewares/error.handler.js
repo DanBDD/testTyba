@@ -3,7 +3,7 @@ const boom = require('@hapi/boom');
 
 function logErrors (err, req, res, next) {
   console.error(err);
-  next(err);
+  next(err); //ejecuta el proximo middleware de error
 }
 
 function errorHandler(err, req, res, next) {
@@ -18,7 +18,7 @@ function boomErrorHandler(err, req, res, next) {
     const { output } = err;
     res.status(output.statusCode).json(output.payload);
   }
-   (err);
+   next(err); //ejecuta el proximo middleware de error
 }
 
 function ormErrorHandler(err, req, res, next) {
@@ -29,7 +29,7 @@ function ormErrorHandler(err, req, res, next) {
       errors: err.errors
     });
   }
-  next(err);
+  next(err);//ejecuta el proximo middleware de error
 }
 
 

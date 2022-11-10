@@ -10,9 +10,9 @@ const LocalStrategy = new Strategy({
   async (email, password, done) => {
     try {
       const user = await service.getUser(email, password);
-      done(null, user);
+      done(null, user); //fin exitoso
     } catch (error) {
-      done(error, false);
+      done(error, false);// error en login
     }
   }
 );

@@ -8,9 +8,9 @@ async function checkBlacklist(req,res,next){
   const item = await blackListService.findOne(token)
   console.log(item)
   if (item!==null){
-    next(boom.unauthorized())
+    next(boom.unauthorized()) //ejecuta el proximo middleware de error
   }
-  next()
+  next() //ejecuta el proximo middleware
 }
 
 
