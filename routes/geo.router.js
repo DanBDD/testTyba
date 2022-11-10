@@ -5,6 +5,7 @@ const GeoService = require('../services/geo.service');
 const validatorHandler = require('./../middlewares/validator.handler');
 const {getGeoSchema } = require('../schemas/geo.schema');
 const {checkBlacklist} = require('./../middlewares/auth.handler');
+const {createRecord} = require('./../middlewares/recorder.handler');
 
 const router = express.Router();
 const service = new GeoService();
@@ -12,6 +13,7 @@ const service = new GeoService();
 router.post('/restaurants',
 passport.authenticate('jwt',{session:false}), //valido el JWT
 checkBlacklist, //valido que no este en blacklist
+createRecord, //guarda el historico
   validatorHandler(getGeoSchema, 'body'),
   async (req, res, next) => {
     try {

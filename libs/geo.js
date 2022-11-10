@@ -35,7 +35,6 @@ class Geo{
 
             return restaurantsNames            } 
           catch (err) {
-            console.log(err)
             throw boom.internal()
         }
     }

@@ -18,13 +18,13 @@ router.post('/login',
   }
 );
 
-router.post('/logout',
+router.get('/logout',
   passport.authenticate('jwt', {session: false}),//capa de autenticacion usando la estrategia jwt
   async (req, res, next) => {
     try {
       const bearer = req.headers.authorization;
       const token = bearer.split(' ')[1];
-      const response = service.logout(token)
+      const response = await service.logout(token)
       res.json({message:response});
     } catch (error) {
       next(error);

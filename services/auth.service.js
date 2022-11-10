@@ -33,8 +33,8 @@ class AuthService {
       token
     };
   }
-  logout(data){
-    const response = blackListService.create(data)
+  async logout(token){
+    const response = await blackListService.create(token)
     return response
   }
 }
